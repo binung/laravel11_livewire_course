@@ -14,8 +14,11 @@ class CreatePost extends Component
 
     public function add()
     {
-        $this->todos[] = $this->todo;
-        $this->todo = '';
+        // $this->todos[] = $this->todo;
+        // $this->todo = '';
+        // $this->reset('todo');
+
+        $this->todos[] = $this->pull('todo');
     }
 
     public function render()
