@@ -12,6 +12,10 @@ class CreatePost extends Component
     public $todos = [];
     public $todo = '';
 
+    public function mount()
+    {
+    }
+
     public function add()
     {
         // $this->todos[] = $this->todo;
