@@ -18,7 +18,7 @@ class CreatePost extends Component
 
     public function mount(Post $post)
     {
-        $this->post = $post;
+        $this->form->setPost($post);
     }
 
 
@@ -32,7 +32,7 @@ class CreatePost extends Component
 
     public function save()
     {
-        $this->form->store();
+        $this->form->update();
 
         // return redirect()->to('/post');
         return redirect('/post');
