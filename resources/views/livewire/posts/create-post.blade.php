@@ -1,17 +1,17 @@
 <div class="px-5">
     <form wire:submit="save">
         <div class="my-5">
-            <input class="w-64" type="text" wire:model="title" wire:keydown.enter="add">
+            <input class="w-64" type="text" wire:model="form.title" wire:keydown.enter="add">
             <div>
-                @error('title')
+                @error('form.title')
                     <span class="error">{{ $message }}</span>
                 @enderror
             </div>
         </div>
         <div class="mb-10 w-64">
-            <textarea class=" w-64" wire:model="content"></textarea>
+            <textarea class=" w-64" wire:model="form.content"></textarea>
             <div>
-                @error('content')
+                @error('form.content')
                     <span class="error">{{ $message }}</span>
                 @enderror
             </div>

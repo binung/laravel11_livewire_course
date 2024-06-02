@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Posts;
 
+use App\Livewire\Forms\PostForm;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Js;
@@ -11,12 +12,7 @@ use Livewire\Component;
 
 class CreatePost extends Component
 {
-    #[Validate('required')]
-    public $title = '';
-
-    #[Validate(('required'))]
-    public $content = '';
-
+    public PostForm $form;
     public $query = '';
     public Post $post;
 
@@ -36,8 +32,7 @@ class CreatePost extends Component
 
     public function save()
     {
-        $this->validate();
-        Post::create(['title' => $this->title, 'content' => $this->content]);
+        $this->form->store();
 
         // return redirect()->to('/post');
         return redirect('/post');
