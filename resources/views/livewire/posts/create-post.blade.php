@@ -2,9 +2,19 @@
     <form wire:submit="save">
         <div class="my-5">
             <input class="w-64" type="text" wire:model="title" wire:keydown.enter="add">
+            <div>
+                @error('title')
+                    <span class="error">{{ $message }}</span>
+                @enderror
+            </div>
         </div>
         <div class="mb-10 w-64">
             <textarea class=" w-64" wire:model="content"></textarea>
+            <div>
+                @error('content')
+                    <span class="error">{{ $message }}</span>
+                @enderror
+            </div>
         </div>
         {{-- <div x-intersect="$wire.incrementViewCount()"></div> --}}
         <div>

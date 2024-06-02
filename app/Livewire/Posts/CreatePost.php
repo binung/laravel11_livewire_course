@@ -6,12 +6,17 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Js;
 use Livewire\Attributes\Renderless;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class CreatePost extends Component
 {
+    #[Validate('required')]
     public $title = '';
+
+    #[Validate(('required'))]
     public $content = '';
+
     public $query = '';
     public Post $post;
 
@@ -31,6 +36,7 @@ class CreatePost extends Component
 
     public function save()
     {
+        $this->validate();
         Post::create(['title' => $this->title, 'content' => $this->content]);
 
         // return redirect()->to('/post');
