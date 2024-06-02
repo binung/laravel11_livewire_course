@@ -13,6 +13,7 @@
             <button class="border border-amber-300 py-2 px-3 mb-2" type="button" x-on:click="$wire.$refresh">Alpine Refresh</button>
             <span wire:loading>Loading...</span>
         </div>
+
         <div>
             @foreach ($posts as $post)
                 <div wire:key="{{ $post->id }}">

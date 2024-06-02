@@ -15,6 +15,7 @@ class CreatePost extends Component
     {
     }
 
+
     public function delete($id)
     {
         $post = Post::findOrFail($id);
