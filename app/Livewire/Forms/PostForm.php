@@ -26,6 +26,8 @@ class PostForm extends Form
     {
         $this->validate();
         Post::create($this->only(['title', 'content']));
+
+        $this->reset(['title', 'content']);
     }
 
     public function update()

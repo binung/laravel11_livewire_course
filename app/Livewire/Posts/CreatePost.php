@@ -32,7 +32,7 @@ class CreatePost extends Component
 
     public function save()
     {
-        $this->form->update();
+        $this->form->store();
 
         // return redirect()->to('/post');
         return redirect('/post');
