@@ -15,6 +15,13 @@ class CreatePost extends Component
     {
     }
 
+    public function delete($id)
+    {
+        $post = Post::findOrFail($id);
+        $this->authorize('delete', $post);
+        $post->delete();
+    }
+
     public function save()
     {
         Post::create(['title' => $this->title, 'content' => $this->content]);
@@ -25,6 +32,8 @@ class CreatePost extends Component
 
     public function render()
     {
-        return view('livewire.posts.create-post');
+        return view('livewire.posts.create-post', [
+            'posts' => Auth::user()->posts,
+        ]);
     }
 }
