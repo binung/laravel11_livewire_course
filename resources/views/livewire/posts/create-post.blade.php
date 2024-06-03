@@ -33,5 +33,8 @@
                 <button class="border border-red-500 px-3 mb-2" wire:click="delete({{ $post->id }})">Delete</button>
             </div>
         @endforeach
+        {{ $posts->links() }}
+        {{-- {{ $posts->links(data: ['scrollTo' => false]) }} --}}
+        {{-- {{ $posts->links(data: ['scrollTo' => '#paginated-posts']) }} --}}
     </div>
 </div>

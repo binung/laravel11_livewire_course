@@ -10,6 +10,7 @@ use Livewire\Attributes\Renderless;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
 
 class CreatePost extends Component
 {
@@ -18,6 +19,8 @@ class CreatePost extends Component
     public Post $post;
 
     use WithFileUploads;
+    use WithPagination;
+
 
     #[Validate('image|max:1024')]
     public $photo;
@@ -61,11 +64,10 @@ class CreatePost extends Component
         $this->post->incrementViewCount();
     }
 
-
     public function render()
     {
         return view('livewire.posts.create-post', [
-            'posts' => Auth::user()->posts,
+            'posts' => Post::paginate(5),
         ]);
     }
 }
