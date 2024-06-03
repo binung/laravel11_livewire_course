@@ -26,6 +26,9 @@
         </div>
     </form>
     <div>
+        <input type="text" wire:model.live="search">
+    </div>
+    <div>
         @foreach ($posts as $post)
             <div wire:key="{{ $post->id }}">
                 <h1>Title: {{ $post->title }}</h1>
@@ -33,7 +36,7 @@
                 <button class="border border-red-500 px-3 mb-2" wire:click="delete({{ $post->id }})">Delete</button>
             </div>
         @endforeach
-        {{ $posts->links() }}
+        {{-- {{ $posts->links() }} --}}
         {{-- {{ $posts->links(data: ['scrollTo' => false]) }} --}}
         {{-- {{ $posts->links(data: ['scrollTo' => '#paginated-posts']) }} --}}
     </div>

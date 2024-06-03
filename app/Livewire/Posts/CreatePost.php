@@ -7,6 +7,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Js;
 use Livewire\Attributes\Renderless;
+use Livewire\Attributes\Url;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -17,6 +18,9 @@ class CreatePost extends Component
     public PostForm $form;
     public $query = '';
     public Post $post;
+
+    #[Url]
+    public $search = '';
 
     use WithFileUploads;
     use WithPagination;
@@ -67,7 +71,7 @@ class CreatePost extends Component
     public function render()
     {
         return view('livewire.posts.create-post', [
-            'posts' => Post::paginate(5),
+            'posts' => Post::where('title', 'like', '%' . $this->search . '%')->get()
         ]);
     }
 }
