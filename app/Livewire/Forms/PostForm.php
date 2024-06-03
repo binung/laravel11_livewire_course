@@ -28,6 +28,8 @@ class PostForm extends Form
         Post::create($this->only(['title', 'content']));
 
         $this->reset(['title', 'content']);
+
+        // Post::create($this->pull());
     }
 
     public function update()

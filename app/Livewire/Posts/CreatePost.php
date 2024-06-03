@@ -9,12 +9,18 @@ use Livewire\Attributes\Js;
 use Livewire\Attributes\Renderless;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class CreatePost extends Component
 {
     public PostForm $form;
     public $query = '';
     public Post $post;
+
+    use WithFileUploads;
+
+    #[Validate('image|max:1024')]
+    public $photo;
 
     public function mount(Post $post)
     {
@@ -32,8 +38,10 @@ class CreatePost extends Component
 
     public function save()
     {
+
         $this->form->store();
 
+        // $this->photo->store(path: 'photos');
         // return redirect()->to('/post');
         return redirect('/post');
     }

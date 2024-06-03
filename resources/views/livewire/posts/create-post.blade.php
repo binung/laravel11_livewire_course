@@ -16,6 +16,7 @@
                 @enderror
             </div>
         </div>
+        <input type="file" wire:model="photo">
         {{-- <div x-intersect="$wire.incrementViewCount()"></div> --}}
         <div>
             <button class="border border-red-500 py-2 px-3 mb-2" type="submit">Save</button>
