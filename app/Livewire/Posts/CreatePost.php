@@ -19,7 +19,7 @@ class CreatePost extends Component
     public $query = '';
     public Post $post;
 
-    #[Url]
+    #[Url(history: true)]
     public $search = '';
 
     use WithFileUploads;
